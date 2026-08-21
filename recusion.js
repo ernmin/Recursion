@@ -11,5 +11,24 @@ fibs = function(n) {
     return arr;
 }
 
+fibsRec = function(n) {
+    if (n === 0){
+        return [];
+    }
+
+    else if (n === 1) {
+        return [0];
+    }
+
+    else if (n === 2){
+        return [0, 1];
+    }
+
+    const sequence = fibsRec(n - 1);
+    sequence.push(sequence.at(-2) + sequence.at(-1));
+
+    return sequence;
+}
+
 const n = process.argv[2];
-console.log(fibs(n))
+console.log(fibsRec(n))
